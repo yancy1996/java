@@ -6,11 +6,13 @@ import java.util.List;
 
 public interface StudentService {
 
-     int insert(Student student);
+    int insert(Student student);
 
-     int save(Student student);
+    int save(Student student);
 
-     List<Student> selectAll();
+    List<Student> selectAll();
 
-     String getToken(String appId);
+    String getToken(String appId);
+
+    List<Student> fetchList();
 }

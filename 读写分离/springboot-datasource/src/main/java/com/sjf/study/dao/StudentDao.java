@@ -1,5 +1,7 @@
 package com.sjf.study.dao;
 
+import com.sjf.study.annotation.TargetDataSource;
+import com.sjf.study.constant.DBTypeEnum;
 import com.sjf.study.entity.Student;
 import org.springframework.stereotype.Repository;
 
@@ -16,4 +18,11 @@ public interface StudentDao {
     int insert(Student student);
 
     List<Student> selectAll();
+
+    /**
+     * 指定数据源
+     * @return
+     */
+    @TargetDataSource(name = DBTypeEnum.SLAVE1)
+    List<Student> fetchList();
 }

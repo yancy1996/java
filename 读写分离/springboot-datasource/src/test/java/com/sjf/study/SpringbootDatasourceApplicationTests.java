@@ -12,38 +12,44 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 class SpringbootDatasourceApplicationTests {
 
-	@Autowired
-	StudentService studentService;
+    @Autowired
+    StudentService studentService;
 
 
-	@Test
-	public void testWrite() {
-		Student student = new Student();
-		student.setName("wangling");
-		student.setAge(15);
-		student.setSex(1);
-		studentService.insert(student);
-	}
-	@Test
-	public void testRead() {
-		for (int i = 0; i < 4; i++) {
-			System.out.println(studentService.selectAll());
-		}
-	}
+    @Test
+    public void testWrite() {
+        Student student = new Student();
+        student.setName("wangling");
+        student.setAge(15);
+        student.setSex(1);
+        studentService.insert(student);
+    }
 
-	@Test
-	public void testSave() {
-		Student student = new Student();
-		student.setName("wangling");
-		student.setAge(15);
-		student.setSex(1);
-		studentService.save(student);
-	}
+    @Test
+    public void testRead() {
+        System.out.println(studentService.selectAll());
 
-	@Test
-	public void testReadFromMaster() {
-		studentService.getToken("1234");
-	}
+    }
+
+    @Test
+    public void testSave() {
+        Student student = new Student();
+        student.setName("wangling");
+        student.setAge(15);
+        student.setSex(1);
+        studentService.save(student);
+    }
+
+
+    @Test
+    public void testTargetDataSource() {
+        System.out.println(studentService.fetchList());
+    }
+
+    @Test
+    public void testReadFromMaster() {
+        studentService.getToken("1234");
+    }
 
 
 }

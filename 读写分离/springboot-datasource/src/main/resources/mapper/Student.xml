@@ -8,8 +8,12 @@
         values (#{id,jdbcType=INTEGER},#{name},#{sex,jdbcType=INTEGER},#{age,jdbcType=INTEGER})
     </insert>
 
-    <!--分页查询-->
     <select id="selectAll" resultType="com.sjf.study.entity.Student">
+        SELECT
+            id,name,sex,age
+        FROM student
+    </select>
+    <select id="fetchList" resultType="com.sjf.study.entity.Student">
         SELECT
             id,name,sex,age
         FROM student

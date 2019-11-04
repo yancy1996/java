@@ -45,4 +45,10 @@ public class StudentServiceImpl implements StudentService {
         //  这种情况下就必须强制从主数据读
         return null;
     }
+
+    @Override
+    public List<Student> fetchList() {
+        return studentDao.fetchList();
+    }
+
 }

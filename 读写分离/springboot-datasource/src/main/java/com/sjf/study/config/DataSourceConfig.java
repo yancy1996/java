@@ -28,20 +28,20 @@ public class DataSourceConfig {
 
 
     @Bean
-    @ConfigurationProperties("spring.datasource.master")
+    @ConfigurationProperties("spring.datasource.druid.master")
     public DataSource masterDataSource() {
         //在build方法里面会取到相应的属性并初始化datasource（alias映射）
         return DataSourceBuilder.create().build();
     }
 
     @Bean
-    @ConfigurationProperties("spring.datasource.slave1")
+    @ConfigurationProperties("spring.datasource.druid.slave1")
     public DataSource slave1DataSource() {
         return DataSourceBuilder.create().build();
     }
 
     @Bean
-    @ConfigurationProperties("spring.datasource.slave2")
+    @ConfigurationProperties("spring.datasource.druid.slave2")
     public DataSource slave2DataSource() {
         return DataSourceBuilder.create().build();
     }
@@ -51,9 +51,9 @@ public class DataSourceConfig {
     /**
      * 配置路由数据源，前3个数据源都是为了生成这个数据源
      *
-     * @param masterDataSource
-     * @param slave1DataSource
-     * @param slave2DataSource
+     * @param masterDataSource 主
+     * @param slave1DataSource 从
+     * @param slave2DataSource 从
      * @return
      */
     @Bean
@@ -64,6 +64,10 @@ public class DataSourceConfig {
         targetDataSources.put(DBTypeEnum.MASTER, masterDataSource);
         targetDataSources.put(DBTypeEnum.SLAVE1, slave1DataSource);
         targetDataSources.put(DBTypeEnum.SLAVE2, slave2DataSource);
+        /**
+         * myRoutingDataSource继承AbstractRoutingDataSource
+         * 初始化路由数据源需要设置默认目标数据源和数据源的集合
+         */
         MyRoutingDataSource myRoutingDataSource = new MyRoutingDataSource();
         myRoutingDataSource.setDefaultTargetDataSource(masterDataSource);
         myRoutingDataSource.setTargetDataSources(targetDataSources);
