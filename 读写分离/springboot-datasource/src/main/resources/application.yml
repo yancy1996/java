@@ -2,17 +2,17 @@
 spring:
   datasource:
     master:
-      jdbc-url: jdbc:mysql://47.94.6.86:3306/study
+      jdbc-url: jdbc:mysql://192.168.0.111:3306/study
       username: root
-      password: 12qwaszx.A
+      password: 123456
       driver-class-name: com.mysql.jdbc.Driver
     slave1:
-      jdbc-url: jdbc:mysql://47.94.6.86:3306/study
-      username: root   # 只读账户
-      password: 12qwaszx.A
+      jdbc-url: jdbc:mysql://192.168.0.112:3306/study
+      username: read   # 只读账户
+      password: 123456
       driver-class-name: com.mysql.jdbc.Driver
     slave2:
-      jdbc-url: jdbc:mysql://47.94.6.86:3306/study
-      username: root   # 只读账户
-      password: 12qwaszx.A
+      jdbc-url: jdbc:mysql://192.168.0.113:3306/study
+      username: read2   # 只读账户
+      password: 123456
       driver-class-name: com.mysql.jdbc.Driver
