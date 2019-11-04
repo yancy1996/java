@@ -1,0 +1,18 @@
+#配置数据源
+spring:
+  datasource:
+    master:
+      jdbc-url: jdbc:mysql://47.94.6.86:3306/study
+      username: root
+      password: 12qwaszx.A
+      driver-class-name: com.mysql.jdbc.Driver
+    slave1:
+      jdbc-url: jdbc:mysql://47.94.6.86:3306/study
+      username: root   # 只读账户
+      password: 12qwaszx.A
+      driver-class-name: com.mysql.jdbc.Driver
+    slave2:
+      jdbc-url: jdbc:mysql://47.94.6.86:3306/study
+      username: root   # 只读账户
+      password: 12qwaszx.A
+      driver-class-name: com.mysql.jdbc.Driver

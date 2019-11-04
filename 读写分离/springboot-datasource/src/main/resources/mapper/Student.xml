@@ -1,0 +1,18 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sjf.study.dao.StudentDao">
+
+    <insert id="insert" parameterType="com.sjf.study.entity.Student">
+        insert into student
+            ( id,name,sex,age)
+        values (#{id,jdbcType=INTEGER},#{name},#{sex,jdbcType=INTEGER},#{age,jdbcType=INTEGER})
+    </insert>
+
+    <!--分页查询-->
+    <select id="selectAll" resultType="com.sjf.study.entity.Student">
+        SELECT
+            id,name,sex,age
+        FROM student
+    </select>
+
+</mapper>
